@@ -4,7 +4,10 @@
   "description": "Landing Page for Natours",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/icon_font.css css/style.comp.css",
+    "perfix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,8 @@
   },
   "homepage": "https://github.com/Samrat798/Natours_Landing_Page#readme",
   "devDependencies": {
-    "node-sass": "^7.0.1"
+    "autoprefixer": "^10.4.7",
+    "node-sass": "^7.0.1",
+    "postcss-cli": "^10.0.0"
   }
 }
